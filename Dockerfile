@@ -22,8 +22,3 @@ WORKDIR /compiler-explorer
 USER user
 RUN	make
 USER root
-
-VOLUME /compiler-explorer/etc/config
-EXPOSE 10240
-
-#ENTRYPOINT [ "/usr/bin/nodejs", "/compiler-explorer/app.js" ]
