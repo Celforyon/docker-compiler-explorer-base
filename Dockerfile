@@ -1,12 +1,12 @@
 FROM celforyon/nodejs:8
 
 LABEL maintainer="Alexis Pereda <alexis@pereda.fr>"
-LABEL version="0.1"
-LABEL description="Docker for godbolt compiler explorer"
+LABEL version="0.2"
+LABEL description="Base for a Compiler Explorer container"
 
 RUN DEBIAN_FRONTEND=noninteractive apt update \
 	&& apt install --no-install-recommends --no-install-suggests -y \
-		git make gcc libc6-dev yarn \
+		binutils git gcc libc6-dev nasm make yarn \
 	&& git clone https://github.com/mattgodbolt/compiler-explorer.git /compiler-explorer \
 	&& cd /compiler-explorer \
 	&& sed -i '/node_modules\/bower\/bin\/bower install/c\\t\/usr\/bin\/nodejs .\/node_modules\/bower\/bin\/bower install --allow-root' /compiler-explorer/Makefile \
