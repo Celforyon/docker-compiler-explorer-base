@@ -2,7 +2,7 @@ FROM celforyon/nodejs:8
 
 LABEL maintainer="Alexis Pereda <alexis@pereda.fr>"
 LABEL version="0.2"
-LABEL description="Base for a Compiler Explorer container"
+LABEL description="Base for a Godbolt Compiler Explorer container"
 
 RUN DEBIAN_FRONTEND=noninteractive apt update \
 	&& apt install --no-install-recommends --no-install-suggests -y \
@@ -20,5 +20,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt update \
 WORKDIR /compiler-explorer
 
 USER user
-RUN	make
+RUN make
 USER root
