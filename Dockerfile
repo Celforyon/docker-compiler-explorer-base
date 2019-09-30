@@ -1,7 +1,7 @@
-FROM celforyon/nodejs:8
+FROM celforyon/nodejs:10
 
 LABEL maintainer="Alexis Pereda <alexis@pereda.fr>"
-LABEL version="0.2"
+LABEL version="0.3"
 LABEL description="Base for a Godbolt Compiler Explorer container"
 
 RUN DEBIAN_FRONTEND=noninteractive apt update \
