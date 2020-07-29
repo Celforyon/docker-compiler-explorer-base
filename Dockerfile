@@ -1,12 +1,12 @@
-FROM celforyon/nodejs:10
+FROM celforyon/nodejs:12
 
 LABEL maintainer="Alexis Pereda <alexis@pereda.fr>"
-LABEL version="0.3"
+LABEL version="0.4"
 LABEL description="Base for a Godbolt Compiler Explorer container"
 
 RUN DEBIAN_FRONTEND=noninteractive apt update \
 	&& apt install --no-install-recommends --no-install-suggests -y \
-		binutils git gcc libc6-dev nasm make yarn \
+		binutils ca-certificates git gcc libc6-dev nasm make yarn \
 	&& git clone https://github.com/mattgodbolt/compiler-explorer.git /compiler-explorer \
 	&& cd /compiler-explorer \
 	&& sed -i '/node_modules\/bower\/bin\/bower install/c\\t\/usr\/bin\/nodejs .\/node_modules\/bower\/bin\/bower install --allow-root' /compiler-explorer/Makefile \
